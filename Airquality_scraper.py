@@ -27,11 +27,12 @@ class AURNScraper:
 
     Example
     -------
-    Example 1 - Single Site: 
+    Example 1 - Retrieve site information for a single site: 
         AURN = AURNScraper()
         AURN.single_site_info(site_name='Port Talbot Margam', download_imgs=True)
-    Example 2 - Multiple Sites:
-        Step 1 - Retrieve site information for all AURN sites to .pkl file:
+
+    Example 2 - Retrieve site information for multiple sites and download files:
+        Step 1 - Update or create the 'All_Sites_Outputs.pkl' to obtain information for all sites in the AURN network. 
             AURN = AURNScraper()
             AURN.all_sites_info()
         Step 2 - Find sites within specified distance from specified coordinates:
@@ -349,7 +350,7 @@ class AURNScraper:
             output_file.iloc[index].to_json(r'{nd}/{si}.json'.format(nd = new_dir, si = site_name))
         print(f'individual record of output file have been converted to json files in {new_dir}')
     
-    def upload_directory_to_s3(self, folder : str, bucketname : str='airqualitywebscraperbucket'):
+    def upload_directory_to_s3(self, folder : str, bucketname : str):
         ''' 
         This method will upload the contents of your chosen folder to an AWS S3 bucket.
         Chosen folder is likely to be either "image_files", "json_files", "monitoring_files".
