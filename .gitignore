@@ -1,0 +1,8 @@
+# Directories
+/image_files
+/json_files
+/monitoring_files
+/Rules
+
+# files
+.Air_Quality_Monitoring_Data_Scraper.ipynb
